@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Pimpinan</title>
+</head>
+<body>
+    <nav>
+        <h1>Dashboard Pimpinan</h1>
+        <button onclick="logout()">Logout</button>
+    </nav>
+
+    <div class="menu">
+        <button onclick="showValidation('validasi-masuk')">Validasi Barang Masuk</button>
+        <button onclick="showValidation('validasi-keluar')">Validasi Barang Keluar</button>
+        <button onclick="showLaporan()">Lihat Laporan</button>
+    </div>
+
+    <script>
+        // Fungsi untuk validasi dan lihat laporan
+        function showValidation(type) {
+            // Logika validasi
+        }
+
+        function showLaporan() {
+            // Logika menampilkan laporan
+        }
+
+        function logout() {
+            localStorage.removeItem('role');
+            window.location.href = 'index.html';
+        }
+    </script>
+</body>
+</html>
