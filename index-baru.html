@@ -1,0 +1,23 @@
+document.getElementById('loginForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const username = document.getElementById('username').value;
+    const password = document.getElementById('password').value;
+    const role = document.getElementById('role').value;
+    
+    // Ambil data user dari localStorage
+    const users = JSON.parse(localStorage.getItem('users') || '[]');
+    
+    // Cari user yang sesuai
+    const user = users.find(u => 
+        u.username === username && 
+        u.password === password && 
+        u.role === role
+    );
+    
+    if(user) {
+        localStorage.setItem('currentUser', JSON.stringify(user));
+        window.location.href = user.role === 'admin' ? 'admin.html' : 'pimpinan.html';
+    } else {
+        alert('Login gagal! Cek username, password, dan role');
+    }
+});
