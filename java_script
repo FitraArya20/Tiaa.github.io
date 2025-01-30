@@ -1,0 +1,44 @@
+// admin.js
+function tambahBarangMasuk() {
+    const barang = {
+        id: Date.now(),
+        nama: document.getElementById('namaBarang').value,
+        jumlah: document.getElementById('jumlah').value,
+        tanggal: new Date().toISOString(),
+        supplier: document.getElementById('supplier').value
+    };
+    
+    const data = JSON.parse(localStorage.getItem('barangMasuk'));
+    data.push(barang);
+    localStorage.setItem('barangMasuk', JSON.stringify(data));
+    tampilkanBarangMasuk();
+}
+
+function tampilkanBarangMasuk() {
+    const data = JSON.parse(localStorage.getItem('barangMasuk'));
+    const table = document.getElementById('tableBarangMasuk');
+    table.innerHTML = `
+        <tr>
+            <th>Nama Barang</th>
+            <th>Jumlah</th>
+            <th>Tanggal</th>
+            <th>Supplier</th>
+            <th>Aksi</th>
+        </tr>
+    `;
+    
+    data.forEach(barang => {
+        table.innerHTML += `
+            <tr>
+                <td>${barang.nama}</td>
+                <td>${barang.jumlah}</td>
+                <td>${new Date(barang.tanggal).toLocaleDateString()}</td>
+                <td>${barang.supplier}</td>
+                <td>
+                    <button onclick="editBarang(${barang.id})">Edit</button>
+                    <button onclick="hapusBarang(${barang.id})">Hapus</button>
+                </td>
+            </tr>
+        `;
+    });
+}
