@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <style>
+        /* Tambahkan styling sesuai kebutuhan */
+    </style>
+</head>
+<body>
+    <nav>
+        <h1>Dashboard Admin</h1>
+        <button onclick="logout()">Logout</button>
+    </nav>
+    
+    <div class="menu">
+        <button onclick="showSection('barang-masuk')">Barang Masuk</button>
+        <button onclick="showSection('barang-keluar')">Barang Keluar</button>
+        <button onclick="showSection('barang-dipinjam')">Barang Dipinjam</button>
+        <button onclick="showSection('supplier')">Data Supplier</button>
+        <button onclick="showSection('laporan')">Laporan</button>
+    </div>
+
+    <!-- Tambahkan konten untuk masing-masing section -->
+    
+    <script>
+        // Fungsi untuk manajemen data
+        function showSection(sectionId) {
+            // Logika untuk menampilkan section yang dipilih
+        }
+
+        function logout() {
+            localStorage.removeItem('role');
+            window.location.href = 'index.html';
+        }
+
+        // Inisialisasi data di localStorage jika belum ada
+        if(!localStorage.getItem('barangMasuk')) {
+            localStorage.setItem('barangMasuk', JSON.stringify([]));
+        }
+        // Buat variabel serupa untuk data lainnya
+    </script>
+</body>
+</html>
